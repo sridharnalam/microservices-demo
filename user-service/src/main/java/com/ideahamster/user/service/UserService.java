@@ -30,7 +30,7 @@ public class UserService {
         Optional<User> optionalUser = userRepository.findById(userId);
         if(optionalUser.isPresent()){
             User user = optionalUser.get();
-            Department department = restTemplate.getForObject("http://localhost:9001/departments/"+user.getDepartmentId(), Department.class);
+            Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments/"+user.getDepartmentId(), Department.class);
             vo.setUser(user);
             vo.setDepartment(department);
         }
